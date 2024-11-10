@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>app</class>
+ <widget class="QMainWindow" name="app">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>770</width>
+    <height>555</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>app</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>-20</x>
+      <y>-10</y>
+      <width>801</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="Authenticaiton">
+     <widget class="QStackedWidget" name="stackedWidgetAuth">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>771</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <widget class="QWidget" name="LogIN">
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>270</x>
+          <y>50</y>
+          <width>281</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+font-size:35px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Authentication</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_4">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>200</y>
+          <width>141</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Username :</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_5">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>280</y>
+          <width>141</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Password :</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditUsernameLog">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>220</y>
+          <width>471</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+font-size:20px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditPasswordLog">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>300</y>
+          <width>471</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+font-size:20px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ButtonExitLog">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>390</y>
+          <width>131</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>EXIT</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ButtonConLog">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>390</y>
+          <width>131</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>CONFIRM</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ButtonTransferLog">
+        <property name="geometry">
+         <rect>
+          <x>620</x>
+          <y>30</y>
+          <width>101</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>SIGN UP</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ButtonForgetPassword">
+        <property name="geometry">
+         <rect>
+          <x>710</x>
+          <y>300</y>
+          <width>31</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="SignUp">
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>40</y>
+          <width>281</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+font-size:35px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Create Account</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>210</y>
+          <width>141</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Username :</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_7">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>280</y>
+          <width>141</width>
+          <height>81</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>Password :</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditUsernameSign">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>230</y>
+          <width>471</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+font-size:20px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="lineEditPasswordSign">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>300</y>
+          <width>471</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit {
+font-size:20px;
+}</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ButtonExitSign">
+        <property name="geometry">
+         <rect>
+          <x>560</x>
+          <y>400</y>
+          <width>131</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>EXIT</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ButtonConSign">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>400</y>
+          <width>131</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>CONFIRM</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ButtonTransferSign">
+        <property name="geometry">
+         <rect>
+          <x>630</x>
+          <y>40</y>
+          <width>101</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+font-size:20px;
+}</string>
+        </property>
+        <property name="text">
+         <string>LOG IN</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="ButtonForgetPassword_2">
+        <property name="geometry">
+         <rect>
+          <x>710</x>
+          <y>300</y>
+          <width>31</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="MainMenu">
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>30</y>
+        <width>231</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:45px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ButtonOption1">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>210</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Option1</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ButtonOption2">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>210</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Option2</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ButtonOption3">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>310</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Option4</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ButtonOption4">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>310</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Option3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ButtonExitMain">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>410</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Exit</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ButtonLeaderBoard">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>410</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>LeaderBoard</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="LeadersBoard">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>180</x>
+        <y>20</y>
+        <width>451</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>449</width>
+         <height>489</height>
+        </rect>
+       </property>
+       <widget class="QTableView" name="tableView">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>451</width>
+          <height>491</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QLabel" name="Username">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>520</y>
+        <width>321</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Score">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>520</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ButtonMainMenuLB">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>220</y>
+        <width>91</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Option1">
+     <widget class="QPushButton" name="ButtonMainMenuOP1">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>240</y>
+        <width>91</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Option2">
+     <widget class="QPushButton" name="ButtonMainMenuOP2">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>180</y>
+        <width>91</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Option3">
+     <widget class="QPushButton" name="ButtonMainMenuOP3">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>270</y>
+        <width>91</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Option4">
+     <widget class="QPushButton" name="ButtonMainMenuOP4">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>200</y>
+        <width>91</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>770</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
