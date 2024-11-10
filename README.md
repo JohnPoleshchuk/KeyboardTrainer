@@ -1,0 +1,3 @@
+-Make generators for Options
+-Understand how use database
+-work at design
