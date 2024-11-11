@@ -517,14 +517,76 @@ font-size:45px;
      <widget class="QPushButton" name="ButtonMainMenuOP1">
       <property name="geometry">
        <rect>
-        <x>430</x>
-        <y>240</y>
+        <x>630</x>
+        <y>390</y>
         <width>91</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
        <string>Main Menu</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option1OUT">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>90</y>
+        <width>591</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Option1ButtonStart">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>390</y>
+        <width>111</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEditOption1">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>270</y>
+        <width>611</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QTextLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Option1ButtonCheck">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>390</y>
+        <width>111</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CHECK</string>
       </property>
      </widget>
     </widget>

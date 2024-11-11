@@ -23,6 +23,8 @@ private slots :
     void option3Transfer();
     void option4Transfer();
     void leaderBoardTransfer();
+    void option1TextFill();
+    void option1Read();
 
 public:
     app(QWidget *parent = nullptr);

@@ -69,6 +69,10 @@ public:
     QPushButton *ButtonMainMenuLB;
     QWidget *Option1;
     QPushButton *ButtonMainMenuOP1;
+    QLabel *Option1OUT;
+    QPushButton *Option1ButtonStart;
+    QLineEdit *lineEditOption1;
+    QPushButton *Option1ButtonCheck;
     QWidget *Option2;
     QPushButton *ButtonMainMenuOP2;
     QWidget *Option3;
@@ -256,7 +260,25 @@ public:
         Option1->setObjectName("Option1");
         ButtonMainMenuOP1 = new QPushButton(Option1);
         ButtonMainMenuOP1->setObjectName("ButtonMainMenuOP1");
-        ButtonMainMenuOP1->setGeometry(QRect(430, 240, 91, 61));
+        ButtonMainMenuOP1->setGeometry(QRect(630, 390, 91, 61));
+        Option1OUT = new QLabel(Option1);
+        Option1OUT->setObjectName("Option1OUT");
+        Option1OUT->setGeometry(QRect(110, 90, 591, 81));
+        Option1OUT->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"font-size:30px;\n"
+"}"));
+        Option1ButtonStart = new QPushButton(Option1);
+        Option1ButtonStart->setObjectName("Option1ButtonStart");
+        Option1ButtonStart->setGeometry(QRect(470, 390, 111, 61));
+        lineEditOption1 = new QLineEdit(Option1);
+        lineEditOption1->setObjectName("lineEditOption1");
+        lineEditOption1->setGeometry(QRect(100, 270, 611, 41));
+        lineEditOption1->setStyleSheet(QString::fromUtf8("QTextLabel {\n"
+"font-size:30px;\n"
+"}"));
+        Option1ButtonCheck = new QPushButton(Option1);
+        Option1ButtonCheck->setObjectName("Option1ButtonCheck");
+        Option1ButtonCheck->setGeometry(QRect(110, 390, 111, 61));
         stackedWidget->addWidget(Option1);
         Option2 = new QWidget();
         Option2->setObjectName("Option2");
@@ -318,6 +340,10 @@ public:
         Score->setText(QCoreApplication::translate("app", "TextLabel", nullptr));
         ButtonMainMenuLB->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
         ButtonMainMenuOP1->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
+        Option1OUT->setText(QCoreApplication::translate("app", "TextLabel", nullptr));
+        Option1ButtonStart->setText(QCoreApplication::translate("app", "Start", nullptr));
+        lineEditOption1->setText(QString());
+        Option1ButtonCheck->setText(QCoreApplication::translate("app", "CHECK", nullptr));
         ButtonMainMenuOP2->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
         ButtonMainMenuOP3->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
         ButtonMainMenuOP4->setText(QCoreApplication::translate("app", "Main Menu", nullptr));

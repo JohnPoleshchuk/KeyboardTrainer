@@ -1,6 +1,8 @@
 #include "app.h"
 #include "ui_app.h"
 #include <QCoreApplication>
+#include "src/generator/Rand/randSymb.h"
+#include <QMessageBox>
 
 app::app(QWidget *parent)
     : QMainWindow(parent)
@@ -54,6 +56,12 @@ app::app(QWidget *parent)
     //Leader Board Widget
 
     ui->stackedWidget->setCurrentIndex(0);
+
+    //Option 1
+    connect(ui->Option1ButtonStart, SIGNAL(clicked()),
+            this, SLOT(option1TextFill()));
+    connect(ui->Option1ButtonCheck, SIGNAL(clicked()),
+            this, SLOT(option1Read()));
 }
 
 app::~app()
@@ -96,4 +104,23 @@ void app::option4Transfer() {
 
 void app::leaderBoardTransfer() {
     ui->stackedWidget->setCurrentIndex(2);
+}
+
+void app::option1TextFill() {
+    string out = "";
+    for (int i = 0; i < 30; i++) {
+        out += genRandom();
+    }
+    ui->Option1OUT->setText(QString::fromStdString(out));
+}
+
+void app::option1Read() {
+    QString text = ui->Option1OUT->text();
+    QString input = ui->lineEditOption1->text();
+
+    if (text == input) {
+        QMessageBox::information(this, "Success message",
+                                        "Name of user: \n"
+                                        "Congratulation!!!");
+    }
 }
