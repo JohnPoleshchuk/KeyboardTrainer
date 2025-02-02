@@ -2,6 +2,13 @@
 #define APP_H
 
 #include <QMainWindow>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <QElapsedTimer>
+#include <QDebug>
+#include <QDateTime>
+#include <QWidget>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,13 +25,13 @@ private slots :
     void mainMenu();
     void transferAuth();
     void authorizationFun();
+    void createAccountFun();
     void option1Transfer();
     void option2Transfer();
     void option3Transfer();
     void option4Transfer();
     void leaderBoardTransfer();
     void option1TextFill();
-    void option1Read();
 
 public:
     app(QWidget *parent = nullptr);
@@ -32,5 +39,9 @@ public:
 
 private:
     Ui::app *ui;
+
+protected:
+    void keyPressEvent(QKeyEvent *event) override;
 };
+
 #endif // APP_H

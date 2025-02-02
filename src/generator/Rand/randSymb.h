@@ -1,4 +1,3 @@
-#include <string>
 #include <cstdlib>
 
 using namespace std;
@@ -13,6 +12,5 @@ int stringLength = sizeof(alphanum) - 1;
 
 char genRandom()  // Random string generator function.
 {
-
     return alphanum[rand() % stringLength];
 }

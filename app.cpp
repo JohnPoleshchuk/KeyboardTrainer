@@ -3,6 +3,9 @@
 #include <QCoreApplication>
 #include "src/generator/Rand/randSymb.h"
 #include <QMessageBox>
+#include <string>
+#include <QWidget>
+#include <QKeyEvent>
 
 app::app(QWidget *parent)
     : QMainWindow(parent)
@@ -41,6 +44,10 @@ app::app(QWidget *parent)
     connect(ui->ButtonConLog, SIGNAL(clicked()),
             this, SLOT(authorizationFun()));
 
+    //Sign Up Confirm
+    connect(ui->ButtonConSign, SIGNAL(clicked()),
+            this, SLOT(createAccountFun()));
+
     //Main menu Buttons
     connect(ui->ButtonLeaderBoard, SIGNAL(clicked()),
             this, SLOT(leaderBoardTransfer()));
@@ -57,11 +64,11 @@ app::app(QWidget *parent)
 
     ui->stackedWidget->setCurrentIndex(0);
 
-    //Option 1
+    //Option1
+
     connect(ui->Option1ButtonStart, SIGNAL(clicked()),
             this, SLOT(option1TextFill()));
-    connect(ui->Option1ButtonCheck, SIGNAL(clicked()),
-            this, SLOT(option1Read()));
+
 }
 
 app::~app()
@@ -86,7 +93,69 @@ void app::transferAuth() {
 }
 
 void app::authorizationFun() {
-    ui->stackedWidget->setCurrentIndex(1);
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    sqlitedb.setDatabaseName("/home/poleschuk/SoftwareEngineering/universityProgramming/typingTrainer/database/login.db");
+
+    QString username = ui->lineEditUsernameLog->text();
+    QString password = ui->lineEditPasswordLog->text();
+
+    if (sqlitedb.open()) {
+        QSqlQuery query(sqlitedb);
+        query.prepare("SELECT * FROM AuthData WHERE LOGIN = :username AND PASSWORD = :password");
+        query.bindValue(":username", username);
+        query.bindValue(":password", password);
+
+        if (query.exec()) {
+            if (query.next()) {
+                ui->stackedWidget->setCurrentIndex(1);
+            } else {
+                QMessageBox::information(this, "Incorect Login or Password",
+                                                "Error");
+            }
+        } else {
+            QMessageBox::information(this, "Database Error",
+                                            "Error");
+        }
+    } else {
+        QMessageBox::information(this, "Connection Error",
+                                        "Error");
+    }
+
+    sqlitedb.close();
+}
+
+void app::createAccountFun() {
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    sqlitedb.setDatabaseName("/home/poleschuk/SoftwareEngineering/universityProgramming/typingTrainer/database/login.db");
+
+    QString username = ui->lineEditUsernameSign->text();
+    QString password = ui->lineEditPasswordSign->text();
+
+    if (sqlitedb.open()) {
+        QSqlQuery query(sqlitedb);
+        query.prepare("SELECT * FROM AuthData WHERE LOGIN = :username");
+        query.bindValue(":username", username);
+
+        if (query.exec()) {
+            if (query.next()) {
+                QMessageBox::information(this, "",
+                                         "Error : Login Alredy Registred");
+            } else {
+                QSqlQuery query(sqlitedb);
+                query.prepare("INSERT INTO AuthData "
+                              "VALUES (:username, :password);");
+                query.bindValue(":username", username);
+                query.bindValue(":password", password);
+                query.exec();
+            }
+        } else {
+            QMessageBox::information(this, "Database Error",
+                                     "Error");
+        }
+    } else {
+        QMessageBox::information(this, "Connection Error",
+                                 "Error");
+    }
 }
 
 void app::option1Transfer() {
@@ -108,19 +177,36 @@ void app::leaderBoardTransfer() {
 
 void app::option1TextFill() {
     string out = "";
+    srand( (unsigned)time(NULL) );
     for (int i = 0; i < 30; i++) {
         out += genRandom();
     }
     ui->Option1OUT->setText(QString::fromStdString(out));
+};
+
+string eraseFirstLeter(string text) {
+    string result = "";
+    for (int i = 1; i < text.size(); i++) {
+        result = result + text[i];
+    }
+    return result;
 }
 
-void app::option1Read() {
-    QString text = ui->Option1OUT->text();
-    QString input = ui->lineEditOption1->text();
-
-    if (text == input) {
-        QMessageBox::information(this, "Success message",
-                                        "Name of user: \n"
-                                        "Congratulation!!!");
+void app::keyPressEvent(QKeyEvent *event)
+{
+    if (ui->stackedWidget->currentIndex() == 3)
+    {
+        QString Qtext = ui->Option1OUT->text();
+        std::string text = Qtext.toUtf8().constData();
+        if (event->text() == text[0]) {
+            string finText = eraseFirstLeter(text);
+            ui->Option1OUT->setText(QString::fromStdString(finText));
+        }
+        if (text == ""){
+            QMessageBox::information(this, "Congratilations",
+                                     "Congratilation, you've done");
+        }
     }
 }
+
+

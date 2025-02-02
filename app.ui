@@ -27,8 +27,8 @@
      <widget class="QStackedWidget" name="stackedWidgetAuth">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
+        <x>10</x>
+        <y>40</y>
         <width>771</width>
         <height>531</height>
        </rect>
@@ -530,7 +530,7 @@ font-size:45px;
      <widget class="QLabel" name="Option1OUT">
       <property name="geometry">
        <rect>
-        <x>110</x>
+        <x>100</x>
         <y>90</y>
         <width>591</width>
         <height>81</height>
