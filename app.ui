@@ -531,7 +531,7 @@ font-size:45px;
       <property name="geometry">
        <rect>
         <x>100</x>
-        <y>90</y>
+        <y>270</y>
         <width>591</width>
         <height>81</height>
        </rect>
@@ -542,7 +542,7 @@ font-size:30px;
 }</string>
       </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string/>
       </property>
      </widget>
      <widget class="QPushButton" name="Option1ButtonStart">
@@ -558,24 +558,6 @@ font-size:30px;
        <string>Start</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEditOption1">
-      <property name="geometry">
-       <rect>
-        <x>100</x>
-        <y>270</y>
-        <width>611</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QTextLabel {
-font-size:30px;
-}</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
      <widget class="QPushButton" name="Option1ButtonCheck">
       <property name="geometry">
        <rect>
@@ -587,6 +569,78 @@ font-size:30px;
       </property>
       <property name="text">
        <string>CHECK</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option1TIME">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>130</y>
+        <width>571</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option1LabelTime">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>130</y>
+        <width>71</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Time</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option1LabelPoints">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>40</y>
+        <width>91</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Points</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option1Points">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>40</y>
+        <width>571</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>

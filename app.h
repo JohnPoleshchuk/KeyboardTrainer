@@ -10,6 +10,7 @@
 #include <QWidget>
 #include <QKeyEvent>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class app;
@@ -32,6 +33,9 @@ private slots :
     void option4Transfer();
     void leaderBoardTransfer();
     void option1TextFill();
+    void startTimer();
+    void stopTimer();
+    void updateLabel();
 
 public:
     app(QWidget *parent = nullptr);
@@ -39,6 +43,9 @@ public:
 
 private:
     Ui::app *ui;
+    QTimer *timer;
+    int points;
+    int count;
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;

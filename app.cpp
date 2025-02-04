@@ -6,12 +6,15 @@
 #include <string>
 #include <QWidget>
 #include <QKeyEvent>
+#include <QTimer>
 
 app::app(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::app)
 {
     ui->setupUi(this);
+
+    timer = new QTimer(this);
 
     //Exit
     connect(ui->ButtonExitLog, SIGNAL(clicked()),
@@ -60,14 +63,19 @@ app::app(QWidget *parent)
     connect(ui->ButtonOption4, SIGNAL(clicked()),
             this, SLOT(option4Transfer()));
 
-    //Leader Board Widget
 
-    ui->stackedWidget->setCurrentIndex(0);
+    //Timer
+    connect(ui->Option1ButtonStart, SIGNAL(clicked()),
+            this, SLOT(startTimer()));
+
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &app::updateLabel);
 
     //Option1
 
     connect(ui->Option1ButtonStart, SIGNAL(clicked()),
             this, SLOT(option1TextFill()));
+
 
 }
 
@@ -82,6 +90,12 @@ void app::exitFun() {
 
 void app::mainMenu() {
     ui->stackedWidget->setCurrentIndex(1);
+
+    stopTimer();
+    ui->Option1OUT->setText(NULL);
+    ui->Option1TIME->setText(NULL);
+    ui->Option1Points->setText(NULL);
+    points = 0;
 }
 
 void app::transferAuth() {
@@ -90,6 +104,23 @@ void app::transferAuth() {
     } else {
         ui->stackedWidgetAuth->setCurrentIndex(0);
     }
+}
+
+void app::option1Transfer() {
+    ui->stackedWidget->setCurrentIndex(3);
+}
+void app::option2Transfer() {
+    ui->stackedWidget->setCurrentIndex(4);
+}
+void app::option3Transfer() {
+    ui->stackedWidget->setCurrentIndex(5);
+}
+void app::option4Transfer() {
+    ui->stackedWidget->setCurrentIndex(6);
+}
+
+void app::leaderBoardTransfer() {
+    ui->stackedWidget->setCurrentIndex(2);
 }
 
 void app::authorizationFun() {
@@ -158,30 +189,26 @@ void app::createAccountFun() {
     }
 }
 
-void app::option1Transfer() {
-    ui->stackedWidget->setCurrentIndex(3);
-}
-void app::option2Transfer() {
-    ui->stackedWidget->setCurrentIndex(4);
-}
-void app::option3Transfer() {
-    ui->stackedWidget->setCurrentIndex(5);
-}
-void app::option4Transfer() {
-    ui->stackedWidget->setCurrentIndex(6);
+void app::startTimer() {
+    count = 0;
+    timer->start(1000);
 }
 
-void app::leaderBoardTransfer() {
-    ui->stackedWidget->setCurrentIndex(2);
+void app::stopTimer() {
+    timer->stop();
+    count = 0;
 }
+
 
 void app::option1TextFill() {
     string out = "";
     srand( (unsigned)time(NULL) );
-    for (int i = 0; i < 30; i++) {
+    for (int i = 0; i < 100; i++) {
         out += genRandom();
     }
     ui->Option1OUT->setText(QString::fromStdString(out));
+    startTimer();
+    points = 0;
 };
 
 string eraseFirstLeter(string text) {
@@ -192,21 +219,28 @@ string eraseFirstLeter(string text) {
     return result;
 }
 
-void app::keyPressEvent(QKeyEvent *event)
-{
+void app::keyPressEvent(QKeyEvent *event) {
     if (ui->stackedWidget->currentIndex() == 3)
     {
         QString Qtext = ui->Option1OUT->text();
         std::string text = Qtext.toUtf8().constData();
+
+        if (text == ""){
+            stopTimer();
+            //ui->Option1TIME->setText(QString::fromStdString());
+        }
+
         if (event->text() == text[0]) {
+            points++;
+            ui->Option1Points->setText(QString::number(points));
+
             string finText = eraseFirstLeter(text);
             ui->Option1OUT->setText(QString::fromStdString(finText));
-        }
-        if (text == ""){
-            QMessageBox::information(this, "Congratilations",
-                                     "Congratilation, you've done");
         }
     }
 }
 
-
+void app::updateLabel() {
+    count++;
+    ui->Option1TIME->setText(QString::number(count));
+}
