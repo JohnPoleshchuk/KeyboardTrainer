@@ -77,6 +77,7 @@ app::app(QWidget *parent)
             this, SLOT(option1TextFill()));
 
 
+
 }
 
 app::~app()
@@ -203,7 +204,11 @@ void app::stopTimer() {
 void app::option1TextFill() {
     string out = "";
     srand( (unsigned)time(NULL) );
-    for (int i = 0; i < 100; i++) {
+
+    QString Qn = ui->Option1ChoseNumber->currentText();
+    int n = Qn.toInt();
+
+    for (int i = 0; i < n; i++) {
         out += genRandom();
     }
     ui->Option1OUT->setText(QString::fromStdString(out));

@@ -643,6 +643,36 @@ font-size:30px;
        <string/>
       </property>
      </widget>
+     <widget class="QComboBox" name="Option1ChoseNumber">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>460</y>
+        <width>79</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>200</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>100</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>50</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>25</string>
+       </property>
+      </item>
+     </widget>
     </widget>
     <widget class="QWidget" name="Option2">
      <widget class="QPushButton" name="ButtonMainMenuOP2">
