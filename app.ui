@@ -461,7 +461,7 @@ font-size:45px;
          <height>489</height>
         </rect>
        </property>
-       <widget class="QTableView" name="tableView">
+       <widget class="QListView" name="listView">
         <property name="geometry">
          <rect>
           <x>0</x>

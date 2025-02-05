@@ -14,7 +14,7 @@ app::app(QWidget *parent)
 {
     ui->setupUi(this);
 
-    timer = new QTimer(this);
+    sqlitedb.setDatabaseName("/home/poleschuk/SoftwareEngineering/universityProgramming/typingTrainer/database/login.db");
 
     //Exit
     connect(ui->ButtonExitLog, SIGNAL(clicked()),
@@ -75,9 +75,6 @@ app::app(QWidget *parent)
 
     connect(ui->Option1ButtonStart, SIGNAL(clicked()),
             this, SLOT(option1TextFill()));
-
-
-
 }
 
 app::~app()
@@ -89,14 +86,46 @@ void app::exitFun() {
     QCoreApplication::quit();
 }
 
-void app::mainMenu() {
-    ui->stackedWidget->setCurrentIndex(1);
+void app::writeResultDatabase(double result) {
+    if (sqlitedb.open()) {
+        QSqlQuery query(sqlitedb);
+        query.prepare("SELECT * FROM AuthData WHERE LOGIN = :username");
+        query.bindValue(":username", login);
 
+        if (query.exec()) {
+            if (query.next()) {
+                QSqlQuery query(sqlitedb);
+                query.prepare("SELECT * FROM AuthData WHERE RESULT = :result");
+                
+                QVariant n;
+                query.bindValue(":result", n);
+                if (n.toDouble() < result) {
+                    QSqlQuery query(sqlitedb);
+                    query.prepare("UPDATE AuthData SET RESULT = :result WHERE LOGIN = :username;");
+                    query.bindValue(":username", login);
+                    query.bindValue(":result", result);
+                    query.exec();
+                }
+            } else {
+                QMessageBox::information(this, "Error",
+                                         "Error");
+            }
+        }
+    }
+}
+
+void app::exitMainMenu() {
     stopTimer();
     ui->Option1OUT->setText(NULL);
     ui->Option1TIME->setText(NULL);
     ui->Option1Points->setText(NULL);
     points = 0;
+}
+
+void app::mainMenu() {
+    ui->stackedWidget->setCurrentIndex(1);
+
+    exitMainMenu();
 }
 
 void app::transferAuth() {
@@ -122,12 +151,10 @@ void app::option4Transfer() {
 
 void app::leaderBoardTransfer() {
     ui->stackedWidget->setCurrentIndex(2);
+
 }
 
 void app::authorizationFun() {
-    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("/home/poleschuk/SoftwareEngineering/universityProgramming/typingTrainer/database/login.db");
-
     QString username = ui->lineEditUsernameLog->text();
     QString password = ui->lineEditPasswordLog->text();
 
@@ -139,6 +166,7 @@ void app::authorizationFun() {
 
         if (query.exec()) {
             if (query.next()) {
+                login = username;
                 ui->stackedWidget->setCurrentIndex(1);
             } else {
                 QMessageBox::information(this, "Incorect Login or Password",
@@ -157,9 +185,6 @@ void app::authorizationFun() {
 }
 
 void app::createAccountFun() {
-    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    sqlitedb.setDatabaseName("/home/poleschuk/SoftwareEngineering/universityProgramming/typingTrainer/database/login.db");
-
     QString username = ui->lineEditUsernameSign->text();
     QString password = ui->lineEditPasswordSign->text();
 
@@ -174,11 +199,13 @@ void app::createAccountFun() {
                                          "Error : Login Alredy Registred");
             } else {
                 QSqlQuery query(sqlitedb);
-                query.prepare("INSERT INTO AuthData "
+                query.prepare("INSERT INTO AuthData (LOGIN, PASSWORD)"
                               "VALUES (:username, :password);");
                 query.bindValue(":username", username);
                 query.bindValue(":password", password);
                 query.exec();
+                QMessageBox::information(this, "Input error",
+                                         "Input");
             }
         } else {
             QMessageBox::information(this, "Database Error",
@@ -197,6 +224,7 @@ void app::startTimer() {
 
 void app::stopTimer() {
     timer->stop();
+    timeCount = count;
     count = 0;
 }
 
@@ -230,17 +258,19 @@ void app::keyPressEvent(QKeyEvent *event) {
         QString Qtext = ui->Option1OUT->text();
         std::string text = Qtext.toUtf8().constData();
 
-        if (text == ""){
-            stopTimer();
-            //ui->Option1TIME->setText(QString::fromStdString());
-        }
-
         if (event->text() == text[0]) {
             points++;
             ui->Option1Points->setText(QString::number(points));
 
             string finText = eraseFirstLeter(text);
             ui->Option1OUT->setText(QString::fromStdString(finText));
+            if (text.size() == 1){
+                stopTimer();
+
+
+                double n = (double)points/(double)timeCount * 60;
+                writeResultDatabase(n);
+            }
         }
     }
 }

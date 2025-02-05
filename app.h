@@ -36,6 +36,8 @@ private slots :
     void startTimer();
     void stopTimer();
     void updateLabel();
+    void exitMainMenu();
+    void writeResultDatabase(qreal result);
 
 public:
     app(QWidget *parent = nullptr);
@@ -44,8 +46,11 @@ public:
 private:
     Ui::app *ui;
     QTimer *timer;
+    QString login;
+    QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
     int points;
     int count;
+    int timeCount;
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
