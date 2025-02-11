@@ -7,6 +7,7 @@
 #include <QWidget>
 #include <QKeyEvent>
 #include <QTimer>
+#include <QSqlTableModel>
 
 app::app(QWidget *parent)
     : QMainWindow(parent)
@@ -14,7 +15,7 @@ app::app(QWidget *parent)
 {
     ui->setupUi(this);
 
-    sqlitedb.setDatabaseName("/home/poleschuk/SoftwareEngineering/universityProgramming/typingTrainer/database/login.db");
+    sqlitedb.setDatabaseName("/home/poleschuk/SoftwareEngineering/uniProg/typingTrainer/database/login.db");
 
     //Exit
     connect(ui->ButtonExitLog, SIGNAL(clicked()),
@@ -152,6 +153,16 @@ void app::option4Transfer() {
 void app::leaderBoardTransfer() {
     ui->stackedWidget->setCurrentIndex(2);
 
+    ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    QSqlTableModel* modal = new QSqlTableModel();
+    if (sqlitedb.open()) {
+        modal->setTable("AuthData");
+        modal->sort(2, Qt::DescendingOrder);
+        modal->select();
+        ui->tableView->setModel(modal);
+        ui->tableView->setColumnHidden(1,true);
+    }
 }
 
 void app::authorizationFun() {

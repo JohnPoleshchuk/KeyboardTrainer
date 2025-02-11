@@ -39,6 +39,8 @@ private slots :
     void exitMainMenu();
     void writeResultDatabase(qreal result);
 
+    //void on_tableView_activated(const QModelIndex &index);
+
 public:
     app(QWidget *parent = nullptr);
     ~app();
