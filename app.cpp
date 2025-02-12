@@ -153,15 +153,21 @@ void app::option4Transfer() {
 void app::leaderBoardTransfer() {
     ui->stackedWidget->setCurrentIndex(2);
 
+    ui->Username->setText(login);
+
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     QSqlTableModel* modal = new QSqlTableModel();
     if (sqlitedb.open()) {
+        QSqlQuery query(sqlitedb); 
+
         modal->setTable("AuthData");
         modal->sort(2, Qt::DescendingOrder);
         modal->select();
         ui->tableView->setModel(modal);
         ui->tableView->setColumnHidden(1,true);
+        ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
     }
 }
 
