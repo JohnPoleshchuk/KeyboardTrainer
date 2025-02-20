@@ -57,12 +57,6 @@ app::app(QWidget *parent)
             this, SLOT(leaderBoardTransfer()));
     connect(ui->ButtonOption1, SIGNAL(clicked()),
             this, SLOT(option1Transfer()));
-    connect(ui->ButtonOption2, SIGNAL(clicked()),
-            this, SLOT(option2Transfer()));
-    connect(ui->ButtonOption3, SIGNAL(clicked()),
-            this, SLOT(option3Transfer()));
-    connect(ui->ButtonOption4, SIGNAL(clicked()),
-            this, SLOT(option4Transfer()));
 
 
     //Timer
@@ -90,17 +84,15 @@ void app::exitFun() {
 void app::writeResultDatabase(double result) {
     if (sqlitedb.open()) {
         QSqlQuery query(sqlitedb);
-        query.prepare("SELECT * FROM AuthData WHERE LOGIN = :username");
+        query.prepare("SELECT RESULT FROM AuthData WHERE LOGIN = :username");
         query.bindValue(":username", login);
 
         if (query.exec()) {
             if (query.next()) {
-                QSqlQuery query(sqlitedb);
-                query.prepare("SELECT * FROM AuthData WHERE RESULT = :result");
-                
-                QVariant n;
-                query.bindValue(":result", n);
-                if (n.toDouble() < result) {
+
+                double n = query.value(0).toDouble();
+
+                if (n < result) {
                     QSqlQuery query(sqlitedb);
                     query.prepare("UPDATE AuthData SET RESULT = :result WHERE LOGIN = :username;");
                     query.bindValue(":username", login);
@@ -285,8 +277,8 @@ void app::keyPressEvent(QKeyEvent *event) {
                 stopTimer();
 
 
-                double n = (double)points/(double)timeCount * 60;
-                writeResultDatabase(n);
+                double result = (double)(points/timeCount) * 60;
+                writeResultDatabase(result);
             }
         }
     }

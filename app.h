@@ -37,7 +37,7 @@ private slots :
     void stopTimer();
     void updateLabel();
     void exitMainMenu();
-    void writeResultDatabase(qreal result);
+    void writeResultDatabase(double result);
 
     //void on_tableView_activated(const QModelIndex &index);
 
@@ -50,7 +50,7 @@ private:
     QTimer *timer;
     QString login;
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
-    int points;
+    double points;
     int count;
     int timeCount;
 
