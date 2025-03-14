@@ -2,6 +2,7 @@
 #include "ui_app.h"
 #include <QCoreApplication>
 #include "src/generator/Rand/randSymb.h"
+#include "src/generator/WordsENG/words.h"
 #include <QMessageBox>
 #include <string>
 #include <QWidget>
@@ -15,7 +16,7 @@ app::app(QWidget *parent)
 {
     ui->setupUi(this);
 
-    sqlitedb.setDatabaseName("/home/poleschuk/SoftwareEngineering/uniProg/typingTrainer/database/login.db");
+    sqlitedb.setDatabaseName("C:/SoftwareEngineering/Project/KeyboardTrainer/database/login.db");
 
     //Exit
     connect(ui->ButtonExitLog, SIGNAL(clicked()),
@@ -57,6 +58,8 @@ app::app(QWidget *parent)
             this, SLOT(leaderBoardTransfer()));
     connect(ui->ButtonOption1, SIGNAL(clicked()),
             this, SLOT(option1Transfer()));
+    connect(ui->ButtonOption2, SIGNAL(clicked()),
+            this, SLOT(option2Transfer()));
 
 
     //Timer
@@ -70,6 +73,10 @@ app::app(QWidget *parent)
 
     connect(ui->Option1ButtonStart, SIGNAL(clicked()),
             this, SLOT(option1TextFill()));
+
+    //Option2
+    connect(ui->Option2ButtonStart, SIGNAL(clicked()),
+            this, SLOT(option2TextFill()));
 }
 
 app::~app()
@@ -253,6 +260,21 @@ void app::option1TextFill() {
     points = 0;
 };
 
+void app::option2TextFill() {
+    string out = "";
+    srand( (unsigned)time(NULL) );
+
+    QString Qn = ui->Option2ChoseNumber->currentText();
+    int n = Qn.toInt();
+
+    for (int i = 0; i < n; i++) {
+        out += genEngWord();
+        ui->Option2OUT->setText(QString::fromStdString(out));
+    }
+    startTimer();
+    points = 0;
+};
+
 string eraseFirstLeter(string text) {
     string result = "";
     for (int i = 1; i < text.size(); i++) {
@@ -282,9 +304,33 @@ void app::keyPressEvent(QKeyEvent *event) {
             }
         }
     }
+    if (ui->stackedWidget->currentIndex() == 4) {
+        QString Qtext = ui->Option2OUT->text();
+        std::string text = Qtext.toUtf8().constData();
+
+        if (event->text() == text[0]) {
+            points++;
+            ui->Option2Points->setText(QString::number(points));
+
+            string finText = eraseFirstLeter(text);
+            ui->Option2OUT->setText(QString::fromStdString(finText));
+            if (text.size() == 1){
+                stopTimer();
+
+
+                double result = (double)(points/timeCount) * 60;
+                writeResultDatabase(result);
+            }
+        }
+    }
 }
 
 void app::updateLabel() {
     count++;
-    ui->Option1TIME->setText(QString::number(count));
+    if (ui->stackedWidget->currentIndex() == 3) {
+        ui->Option1TIME->setText(QString::number(count));
+    }
+    if (ui->stackedWidget->currentIndex() == 4) {
+        ui->Option2TIME->setText(QString::number(count));
+    }
 }

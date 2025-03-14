@@ -33,6 +33,7 @@ private slots :
     void option4Transfer();
     void leaderBoardTransfer();
     void option1TextFill();
+    void option2TextFill();
     void startTimer();
     void stopTimer();
     void updateLabel();
