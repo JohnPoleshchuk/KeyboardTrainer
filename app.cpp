@@ -9,6 +9,7 @@
 #include <QKeyEvent>
 #include <QTimer>
 #include <QSqlTableModel>
+#include <QMediaPlayer>
 
 app::app(QWidget *parent)
     : QMainWindow(parent)
@@ -77,6 +78,12 @@ app::app(QWidget *parent)
     //Option2
     connect(ui->Option2ButtonStart, SIGNAL(clicked()),
             this, SLOT(option2TextFill()));
+
+    //background music
+    QMediaPlayer* music = new QMediaPlayer();
+    music->setSource(QUrl::fromLocalFile(""C:\SoftwareEngineering\Project\KeyboardTrainer\music\Elv.mp3""));
+    music->play();
+
 }
 
 app::~app()

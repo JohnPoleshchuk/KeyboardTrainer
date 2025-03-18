@@ -124,6 +124,12 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_linguist.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimedia.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimediatestlibprivate_private.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_network.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_network_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_opengl.pri \
@@ -188,6 +194,7 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dxr.pri \
@@ -247,6 +254,8 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_shadertools.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri \
+		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_sql.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_sql_private.pri \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_svg.pri \
@@ -268,6 +277,7 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 		../../../../Qt/6.8.2/mingw_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/win32-g++/qmake.conf \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/features/default_pre.prf \
@@ -294,12 +304,13 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 		../../../../Qt/6.8.2/mingw_64/mkspecs/features/yacc.prf \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/features/lex.prf \
 		../../KeyboardTrainer.pro \
+		../../../../Qt/6.8.2/mingw_64/lib/Qt6Multimedia.prl \
 		../../../../Qt/6.8.2/mingw_64/lib/Qt6Widgets.prl \
 		../../../../Qt/6.8.2/mingw_64/lib/Qt6Gui.prl \
+		../../../../Qt/6.8.2/mingw_64/lib/Qt6Network.prl \
 		../../../../Qt/6.8.2/mingw_64/lib/Qt6Sql.prl \
 		../../../../Qt/6.8.2/mingw_64/lib/Qt6Core.prl \
 		../../../../Qt/6.8.2/mingw_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
 		../../../../Qt/6.8.2/mingw_64/mkspecs/features/build_pass.prf \
 		debug/qmake_qmake_qm_files.qrc \
 		release/qmake_qmake_qm_files.qrc
@@ -358,6 +369,12 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_labswavefrontmesh_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_linguist.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimedia.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimedia_private.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimediaquick_private.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimediatestlibprivate_private.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_multimediawidgets_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_network.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_network_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_opengl.pri:
@@ -422,6 +439,7 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dparticles_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3druntimerender_private.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dspatialaudio_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dutils_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quick3dxr.pri:
@@ -481,6 +499,8 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_quickwidgets_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_shadertools.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_shadertools_private.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio.pri:
+../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_spatialaudio_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_sql.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_sql_private.pri:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/modules/qt_lib_svg.pri:
@@ -502,6 +522,7 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 ../../../../Qt/6.8.2/mingw_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/win32-g++/qmake.conf:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/features/default_pre.prf:
@@ -528,12 +549,13 @@ Makefile: ../../KeyboardTrainer.pro ../../../../Qt/6.8.2/mingw_64/mkspecs/featur
 ../../../../Qt/6.8.2/mingw_64/mkspecs/features/yacc.prf:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/features/lex.prf:
 ../../KeyboardTrainer.pro:
+../../../../Qt/6.8.2/mingw_64/lib/Qt6Multimedia.prl:
 ../../../../Qt/6.8.2/mingw_64/lib/Qt6Widgets.prl:
 ../../../../Qt/6.8.2/mingw_64/lib/Qt6Gui.prl:
+../../../../Qt/6.8.2/mingw_64/lib/Qt6Network.prl:
 ../../../../Qt/6.8.2/mingw_64/lib/Qt6Sql.prl:
 ../../../../Qt/6.8.2/mingw_64/lib/Qt6Core.prl:
 ../../../../Qt/6.8.2/mingw_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 ../../../../Qt/6.8.2/mingw_64/mkspecs/features/build_pass.prf:
 debug/qmake_qmake_qm_files.qrc:
 release/qmake_qmake_qm_files.qrc:
