@@ -9,6 +9,9 @@
 #include <QDateTime>
 #include <QWidget>
 #include <QKeyEvent>
+#include <QtMultimedia>
+#include <QMediaPlayer>
+#include <qmediaplayer.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -39,6 +42,7 @@ private slots :
     void updateLabel();
     void exitMainMenu();
     void writeResultDatabase(double result);
+    void setVolume(int volume);
 
     //void on_tableView_activated(const QModelIndex &index);
 
@@ -51,6 +55,8 @@ private:
     QTimer *timer;
     QString login;
     QSqlDatabase sqlitedb = QSqlDatabase::addDatabase("QSQLITE");
+    QMediaPlayer *musicPlayer;
+    QAudioOutput *audioOutput;
     double points;
     int count;
     int timeCount;

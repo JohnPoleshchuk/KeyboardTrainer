@@ -172,19 +172,6 @@ font-size:20px;
          <string>SIGN UP</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="ButtonForgetPassword">
-        <property name="geometry">
-         <rect>
-          <x>710</x>
-          <y>300</y>
-          <width>31</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
       </widget>
       <widget class="QWidget" name="SignUp">
        <widget class="QLabel" name="label_3">

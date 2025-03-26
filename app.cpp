@@ -9,7 +9,8 @@
 #include <QKeyEvent>
 #include <QTimer>
 #include <QSqlTableModel>
-#include <QMediaPlayer>
+#include <QAudioFormat>
+#include <qaudiooutput.h>
 
 app::app(QWidget *parent)
     : QMainWindow(parent)
@@ -74,15 +75,37 @@ app::app(QWidget *parent)
 
     connect(ui->Option1ButtonStart, SIGNAL(clicked()),
             this, SLOT(option1TextFill()));
+    ui->Option1ButtonStart->setFocusPolicy(Qt::NoFocus);
+    ui->Option1ChoseNumber->setFocusPolicy(Qt::NoFocus);
+    ui->ButtonMainMenuOP1->setFocusPolicy(Qt::NoFocus);
 
     //Option2
     connect(ui->Option2ButtonStart, SIGNAL(clicked()),
             this, SLOT(option2TextFill()));
+    ui->Option2ButtonStart->setFocusPolicy(Qt::NoFocus);
+    ui->Option2ChoseNumber->setFocusPolicy(Qt::NoFocus);
+    ui->ButtonMainMenuOP2->setFocusPolicy(Qt::NoFocus);
 
     //background music
-    QMediaPlayer* music = new QMediaPlayer();
-    music->setSource(QUrl::fromLocalFile(""C:\SoftwareEngineering\Project\KeyboardTrainer\music\Elv.mp3""));
-    music->play();
+    audioOutput = new QAudioOutput(this);
+    musicPlayer = new QMediaPlayer(this);
+    musicPlayer->setAudioOutput(audioOutput);
+
+    // Load music
+    musicPlayer->setSource(QUrl("C:/SoftwareEngineering/Project/KeyboardTrainer/music/Elv.mp3"));
+
+    // Error handling
+    connect(musicPlayer, &QMediaPlayer::errorOccurred, [](auto error, auto errorString) {
+        qDebug() << "Music error:" << errorString;
+    });
+
+    // Configure
+    audioOutput->setVolume(0.1); // 50% volume
+    musicPlayer->setLoops(QMediaPlayer::Infinite);
+
+    // Play
+    musicPlayer->play();
+
 
 }
 
@@ -93,6 +116,10 @@ app::~app()
 
 void app::exitFun() {
     QCoreApplication::quit();
+}
+
+void app::setVolume(int volume) {
+    audioOutput->setVolume(volume / 100.0);
 }
 
 void app::writeResultDatabase(double result) {
@@ -275,7 +302,7 @@ void app::option2TextFill() {
     int n = Qn.toInt();
 
     for (int i = 0; i < n; i++) {
-        out += genEngWord();
+        out += genEngWord() + " ";
         ui->Option2OUT->setText(QString::fromStdString(out));
     }
     startTimer();
@@ -321,9 +348,8 @@ void app::keyPressEvent(QKeyEvent *event) {
 
             string finText = eraseFirstLeter(text);
             ui->Option2OUT->setText(QString::fromStdString(finText));
-            if (text.size() == 1){
+            if (text.size() == 2){
                 stopTimer();
-
 
                 double result = (double)(points/timeCount) * 60;
                 writeResultDatabase(result);

@@ -42,7 +42,6 @@ public:
     QPushButton *ButtonExitLog;
     QPushButton *ButtonConLog;
     QPushButton *ButtonTransferLog;
-    QPushButton *ButtonForgetPassword;
     QWidget *SignUp;
     QLabel *label_3;
     QLabel *label_6;
@@ -155,9 +154,6 @@ public:
         ButtonTransferLog->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font-size:20px;\n"
 "}"));
-        ButtonForgetPassword = new QPushButton(LogIN);
-        ButtonForgetPassword->setObjectName("ButtonForgetPassword");
-        ButtonForgetPassword->setGeometry(QRect(710, 300, 31, 41));
         stackedWidgetAuth->addWidget(LogIN);
         SignUp = new QWidget();
         SignUp->setObjectName("SignUp");
@@ -382,7 +378,6 @@ public:
         ButtonExitLog->setText(QCoreApplication::translate("app", "EXIT", nullptr));
         ButtonConLog->setText(QCoreApplication::translate("app", "CONFIRM", nullptr));
         ButtonTransferLog->setText(QCoreApplication::translate("app", "SIGN UP", nullptr));
-        ButtonForgetPassword->setText(QString());
         label_3->setText(QCoreApplication::translate("app", "Create Account", nullptr));
         label_6->setText(QCoreApplication::translate("app", "Username :", nullptr));
         label_7->setText(QCoreApplication::translate("app", "Password :", nullptr));
