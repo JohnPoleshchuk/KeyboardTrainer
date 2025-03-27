@@ -312,19 +312,6 @@ font-size:20px;
          <string>LOG IN</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="ButtonForgetPassword_2">
-        <property name="geometry">
-         <rect>
-          <x>710</x>
-          <y>300</y>
-          <width>31</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
       </widget>
      </widget>
     </widget>
