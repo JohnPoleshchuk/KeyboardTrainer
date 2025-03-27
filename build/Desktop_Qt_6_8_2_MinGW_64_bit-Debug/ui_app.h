@@ -58,12 +58,15 @@ public:
     QPushButton *ButtonExitMain;
     QPushButton *ButtonLeaderBoard;
     QPushButton *ButtonOption2;
+    QPushButton *ButtonOption3;
     QWidget *LeadersBoard;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QTableView *tableView;
     QLabel *Username;
     QPushButton *ButtonMainMenuLB;
+    QComboBox *LeadersBoardChoseTable;
+    QPushButton *LeadersBoardUpdateButton;
     QWidget *Option1;
     QPushButton *ButtonMainMenuOP1;
     QLabel *Option1OUT;
@@ -84,6 +87,13 @@ public:
     QLabel *Option2TIME;
     QWidget *Option3;
     QPushButton *ButtonMainMenuOP3;
+    QPushButton *Option3ButtonStart;
+    QComboBox *Option3ChoseNumber;
+    QLabel *Option3LabelTime;
+    QLabel *Option3OUT;
+    QLabel *Option3Points;
+    QLabel *Option3TIME;
+    QLabel *Option3LabelPoints;
     QWidget *Option4;
     QPushButton *ButtonMainMenuOP4;
     QMenuBar *menubar;
@@ -230,6 +240,9 @@ public:
         ButtonOption2 = new QPushButton(MainMenu);
         ButtonOption2->setObjectName("ButtonOption2");
         ButtonOption2->setGeometry(QRect(460, 260, 161, 51));
+        ButtonOption3 = new QPushButton(MainMenu);
+        ButtonOption3->setObjectName("ButtonOption3");
+        ButtonOption3->setGeometry(QRect(300, 330, 161, 51));
         stackedWidget->addWidget(MainMenu);
         LeadersBoard = new QWidget();
         LeadersBoard->setObjectName("LeadersBoard");
@@ -250,6 +263,14 @@ public:
         ButtonMainMenuLB = new QPushButton(LeadersBoard);
         ButtonMainMenuLB->setObjectName("ButtonMainMenuLB");
         ButtonMainMenuLB->setGeometry(QRect(670, 220, 91, 61));
+        LeadersBoardChoseTable = new QComboBox(LeadersBoard);
+        LeadersBoardChoseTable->addItem(QString());
+        LeadersBoardChoseTable->addItem(QString());
+        LeadersBoardChoseTable->setObjectName("LeadersBoardChoseTable");
+        LeadersBoardChoseTable->setGeometry(QRect(50, 300, 91, 26));
+        LeadersBoardUpdateButton = new QPushButton(LeadersBoard);
+        LeadersBoardUpdateButton->setObjectName("LeadersBoardUpdateButton");
+        LeadersBoardUpdateButton->setGeometry(QRect(50, 220, 91, 61));
         stackedWidget->addWidget(LeadersBoard);
         Option1 = new QWidget();
         Option1->setObjectName("Option1");
@@ -347,7 +368,46 @@ public:
         Option3->setObjectName("Option3");
         ButtonMainMenuOP3 = new QPushButton(Option3);
         ButtonMainMenuOP3->setObjectName("ButtonMainMenuOP3");
-        ButtonMainMenuOP3->setGeometry(QRect(450, 270, 91, 61));
+        ButtonMainMenuOP3->setGeometry(QRect(640, 370, 91, 61));
+        Option3ButtonStart = new QPushButton(Option3);
+        Option3ButtonStart->setObjectName("Option3ButtonStart");
+        Option3ButtonStart->setGeometry(QRect(400, 370, 111, 61));
+        Option3ChoseNumber = new QComboBox(Option3);
+        Option3ChoseNumber->addItem(QString());
+        Option3ChoseNumber->addItem(QString());
+        Option3ChoseNumber->addItem(QString());
+        Option3ChoseNumber->setObjectName("Option3ChoseNumber");
+        Option3ChoseNumber->setGeometry(QRect(300, 380, 79, 26));
+        Option3LabelTime = new QLabel(Option3);
+        Option3LabelTime->setObjectName("Option3LabelTime");
+        Option3LabelTime->setGeometry(QRect(30, 100, 71, 81));
+        Option3LabelTime->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"font-size:30px;\n"
+"}"));
+        Option3OUT = new QLabel(Option3);
+        Option3OUT->setObjectName("Option3OUT");
+        Option3OUT->setGeometry(QRect(40, 230, 591, 81));
+        Option3OUT->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"font-size:30px;\n"
+"}"));
+        Option3Points = new QLabel(Option3);
+        Option3Points->setObjectName("Option3Points");
+        Option3Points->setGeometry(QRect(120, 20, 571, 81));
+        Option3Points->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"font-size:30px;\n"
+"}"));
+        Option3TIME = new QLabel(Option3);
+        Option3TIME->setObjectName("Option3TIME");
+        Option3TIME->setGeometry(QRect(110, 100, 571, 81));
+        Option3TIME->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"font-size:30px;\n"
+"}"));
+        Option3LabelPoints = new QLabel(Option3);
+        Option3LabelPoints->setObjectName("Option3LabelPoints");
+        Option3LabelPoints->setGeometry(QRect(30, 20, 91, 81));
+        Option3LabelPoints->setStyleSheet(QString::fromUtf8("QLabel {\n"
+"font-size:30px;\n"
+"}"));
         stackedWidget->addWidget(Option3);
         Option4 = new QWidget();
         Option4->setObjectName("Option4");
@@ -390,8 +450,13 @@ public:
         ButtonExitMain->setText(QCoreApplication::translate("app", "Exit", nullptr));
         ButtonLeaderBoard->setText(QCoreApplication::translate("app", "LeaderBoard", nullptr));
         ButtonOption2->setText(QCoreApplication::translate("app", "Option2", nullptr));
+        ButtonOption3->setText(QCoreApplication::translate("app", "Option3", nullptr));
         Username->setText(QString());
         ButtonMainMenuLB->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
+        LeadersBoardChoseTable->setItemText(0, QCoreApplication::translate("app", "Symbols", nullptr));
+        LeadersBoardChoseTable->setItemText(1, QCoreApplication::translate("app", "Words", nullptr));
+
+        LeadersBoardUpdateButton->setText(QCoreApplication::translate("app", "Update", nullptr));
         ButtonMainMenuOP1->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
         Option1OUT->setText(QString());
         Option1ButtonStart->setText(QCoreApplication::translate("app", "Start", nullptr));
@@ -417,6 +482,16 @@ public:
         Option2Points->setText(QString());
         Option2TIME->setText(QString());
         ButtonMainMenuOP3->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
+        Option3ButtonStart->setText(QCoreApplication::translate("app", "Start", nullptr));
+        Option3ChoseNumber->setItemText(0, QCoreApplication::translate("app", "60", nullptr));
+        Option3ChoseNumber->setItemText(1, QCoreApplication::translate("app", "30", nullptr));
+        Option3ChoseNumber->setItemText(2, QCoreApplication::translate("app", "15", nullptr));
+
+        Option3LabelTime->setText(QCoreApplication::translate("app", "Time", nullptr));
+        Option3OUT->setText(QString());
+        Option3Points->setText(QString());
+        Option3TIME->setText(QString());
+        Option3LabelPoints->setText(QCoreApplication::translate("app", "Points", nullptr));
         ButtonMainMenuOP4->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
     } // retranslateUi
 

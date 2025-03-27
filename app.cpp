@@ -18,6 +18,17 @@ app::app(QWidget *parent)
 {
     ui->setupUi(this);
 
+    // Enable window scaling
+    this->setWindowFlags(Qt::Window | Qt::WindowMinMaxButtonsHint | Qt::WindowCloseButtonHint);
+    this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    // Make the central widget resize with the window
+    ui->centralwidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
+    // Make stacked widgets resize with the window
+    ui->stackedWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ui->stackedWidgetAuth->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+
     sqlitedb.setDatabaseName("C:/SoftwareEngineering/Project/KeyboardTrainer/database/login.db");
 
     //Exit
@@ -63,6 +74,10 @@ app::app(QWidget *parent)
     connect(ui->ButtonOption2, SIGNAL(clicked()),
             this, SLOT(option2Transfer()));
 
+    //LeaderBoard
+    connect(ui->LeadersBoardUpdateButton, SIGNAL(clicked()),
+            this, SLOT(leaderBoardUpdate()));
+
 
     //Timer
     connect(ui->Option1ButtonStart, SIGNAL(clicked()),
@@ -85,6 +100,10 @@ app::app(QWidget *parent)
     ui->Option2ButtonStart->setFocusPolicy(Qt::NoFocus);
     ui->Option2ChoseNumber->setFocusPolicy(Qt::NoFocus);
     ui->ButtonMainMenuOP2->setFocusPolicy(Qt::NoFocus);
+
+    //option3
+    connect(ui->ButtonOption3, SIGNAL(clicked()),
+            this, SLOT(option3Transfer()));
 
     //background music
     audioOutput = new QAudioOutput(this);
@@ -125,7 +144,11 @@ void app::setVolume(int volume) {
 void app::writeResultDatabase(double result) {
     if (sqlitedb.open()) {
         QSqlQuery query(sqlitedb);
-        query.prepare("SELECT RESULT FROM AuthData WHERE LOGIN = :username");
+        if (ui->stackedWidget->currentIndex() == 3) {
+            query.prepare("SELECT SYMBOLS_RESULT FROM AuthData WHERE LOGIN = :username");
+        } else {
+            query.prepare("SELECT WORDS_RESULT FROM AuthData WHERE LOGIN = :username");
+        }
         query.bindValue(":username", login);
 
         if (query.exec()) {
@@ -135,7 +158,11 @@ void app::writeResultDatabase(double result) {
 
                 if (n < result) {
                     QSqlQuery query(sqlitedb);
-                    query.prepare("UPDATE AuthData SET RESULT = :result WHERE LOGIN = :username;");
+                    if (ui->stackedWidget->currentIndex() == 3) {
+                        query.prepare("UPDATE AuthData SET SYMBOLS_RESULT = :result WHERE LOGIN = :username;");
+                    } else {
+                        query.prepare("UPDATE AuthData SET WORDS_RESULT = :result WHERE LOGIN = :username;");
+                    }
                     query.bindValue(":username", login);
                     query.bindValue(":result", result);
                     query.exec();
@@ -185,10 +212,12 @@ void app::option4Transfer() {
 
 void app::leaderBoardTransfer() {
     ui->stackedWidget->setCurrentIndex(2);
-
     ui->Username->setText(login);
 
     ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     QSqlTableModel* modal = new QSqlTableModel();
     if (sqlitedb.open()) {
@@ -199,6 +228,35 @@ void app::leaderBoardTransfer() {
         modal->select();
         ui->tableView->setModel(modal);
         ui->tableView->setColumnHidden(1,true);
+        if (ui->LeadersBoardChoseTable->currentText() == QString::fromStdString("Symbols")) {
+            ui->tableView->setColumnHidden(3,true);
+            ui->tableView->setColumnHidden(2,false);
+        } else {
+            ui->tableView->setColumnHidden(2,true);
+            ui->tableView->setColumnHidden(3,false);
+        }
+        ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    }
+}
+
+void app::leaderBoardUpdate() {
+    QSqlTableModel* modal = new QSqlTableModel();
+    if (sqlitedb.open()) {
+        QSqlQuery query(sqlitedb);
+
+        modal->setTable("AuthData");
+        modal->sort(2, Qt::DescendingOrder);
+        modal->select();
+        ui->tableView->setModel(modal);
+        ui->tableView->setColumnHidden(1,true);
+        if (ui->LeadersBoardChoseTable->currentText() == QString::fromStdString("Symbols")) {
+            ui->tableView->setColumnHidden(3,true);
+            ui->tableView->setColumnHidden(2,false);
+        } else {
+            ui->tableView->setColumnHidden(2,true);
+            ui->tableView->setColumnHidden(3,false);
+        }
         ui->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
     }

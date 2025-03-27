@@ -399,6 +399,19 @@ font-size:45px;
        <string>Option2</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="ButtonOption3">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>330</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Option3</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="LeadersBoard">
      <widget class="QScrollArea" name="scrollArea">
@@ -458,6 +471,39 @@ font-size:45px;
       </property>
       <property name="text">
        <string>Main Menu</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="LeadersBoardChoseTable">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>300</y>
+        <width>91</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Symbols</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Words</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="LeadersBoardUpdateButton">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>220</y>
+        <width>91</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Update</string>
       </property>
      </widget>
     </widget>
@@ -761,14 +807,142 @@ font-size:30px;
      <widget class="QPushButton" name="ButtonMainMenuOP3">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>270</y>
+        <x>640</x>
+        <y>370</y>
         <width>91</width>
         <height>61</height>
        </rect>
       </property>
       <property name="text">
        <string>Main Menu</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="Option3ButtonStart">
+      <property name="geometry">
+       <rect>
+        <x>400</x>
+        <y>370</y>
+        <width>111</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Start</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="Option3ChoseNumber">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>380</y>
+        <width>79</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>60</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>30</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>15</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="Option3LabelTime">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>100</y>
+        <width>71</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Time</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option3OUT">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>230</y>
+        <width>591</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option3Points">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>20</y>
+        <width>571</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option3TIME">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>100</y>
+        <width>571</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="Option3LabelPoints">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>20</y>
+        <width>91</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+font-size:30px;
+}</string>
+      </property>
+      <property name="text">
+       <string>Points</string>
       </property>
      </widget>
     </widget>
