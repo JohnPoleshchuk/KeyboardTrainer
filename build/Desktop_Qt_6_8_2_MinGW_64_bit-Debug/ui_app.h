@@ -224,25 +224,25 @@ public:
         MainMenu->setObjectName("MainMenu");
         label = new QLabel(MainMenu);
         label->setObjectName("label");
-        label->setGeometry(QRect(270, 30, 231, 81));
+        label->setGeometry(QRect(290, 30, 231, 81));
         label->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:45px;\n"
 "}"));
         ButtonOption1 = new QPushButton(MainMenu);
         ButtonOption1->setObjectName("ButtonOption1");
-        ButtonOption1->setGeometry(QRect(130, 260, 161, 51));
+        ButtonOption1->setGeometry(QRect(90, 260, 161, 51));
         ButtonExitMain = new QPushButton(MainMenu);
         ButtonExitMain->setObjectName("ButtonExitMain");
-        ButtonExitMain->setGeometry(QRect(460, 410, 161, 51));
+        ButtonExitMain->setGeometry(QRect(450, 390, 161, 51));
         ButtonLeaderBoard = new QPushButton(MainMenu);
         ButtonLeaderBoard->setObjectName("ButtonLeaderBoard");
-        ButtonLeaderBoard->setGeometry(QRect(130, 410, 161, 51));
+        ButtonLeaderBoard->setGeometry(QRect(190, 390, 161, 51));
         ButtonOption2 = new QPushButton(MainMenu);
         ButtonOption2->setObjectName("ButtonOption2");
-        ButtonOption2->setGeometry(QRect(460, 260, 161, 51));
+        ButtonOption2->setGeometry(QRect(320, 260, 161, 51));
         ButtonOption3 = new QPushButton(MainMenu);
         ButtonOption3->setObjectName("ButtonOption3");
-        ButtonOption3->setGeometry(QRect(300, 330, 161, 51));
+        ButtonOption3->setGeometry(QRect(550, 260, 161, 51));
         stackedWidget->addWidget(MainMenu);
         LeadersBoard = new QWidget();
         LeadersBoard->setObjectName("LeadersBoard");

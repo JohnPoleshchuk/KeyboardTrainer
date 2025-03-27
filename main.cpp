@@ -4,6 +4,7 @@
 #include <QLocale>
 #include <QTranslator>
 #include <QGuiApplication>
+#include <QIcon>
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +21,9 @@ int main(int argc, char *argv[])
         }
     }
     app w;
+
+    w.setWindowIcon(QIcon("C:/SoftwareEngineering/Project/KeyboardTrainer/images/icon/keyboard-100.png"));
+
     w.show();
     return a.exec();
 }

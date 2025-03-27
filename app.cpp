@@ -104,6 +104,11 @@ app::app(QWidget *parent)
     //option3
     connect(ui->ButtonOption3, SIGNAL(clicked()),
             this, SLOT(option3Transfer()));
+    connect(ui->Option3ButtonStart, SIGNAL(clicked()),
+            this, SLOT(option3TextFill()));
+    ui->Option3ButtonStart->setFocusPolicy(Qt::NoFocus);
+    ui->Option3ChoseNumber->setFocusPolicy(Qt::NoFocus);
+    ui->ButtonMainMenuOP3->setFocusPolicy(Qt::NoFocus);
 
     //background music
     audioOutput = new QAudioOutput(this);
@@ -224,6 +229,11 @@ void app::leaderBoardTransfer() {
         QSqlQuery query(sqlitedb); 
 
         modal->setTable("AuthData");
+        if (ui->LeadersBoardChoseTable->currentText() == QString::fromStdString("Symbols")) {
+            modal->sort(2, Qt::DescendingOrder);
+        } else {
+            modal->sort(3, Qt::DescendingOrder);
+        }
         modal->sort(2, Qt::DescendingOrder);
         modal->select();
         ui->tableView->setModel(modal);
@@ -246,7 +256,11 @@ void app::leaderBoardUpdate() {
         QSqlQuery query(sqlitedb);
 
         modal->setTable("AuthData");
-        modal->sort(2, Qt::DescendingOrder);
+        if (ui->LeadersBoardChoseTable->currentText() == QString::fromStdString("Symbols")) {
+            modal->sort(2, Qt::DescendingOrder);
+        } else {
+            modal->sort(3, Qt::DescendingOrder);
+        }
         modal->select();
         ui->tableView->setModel(modal);
         ui->tableView->setColumnHidden(1,true);
@@ -367,6 +381,21 @@ void app::option2TextFill() {
     points = 0;
 };
 
+void app::option3TextFill() {
+    string out = "";
+    srand( (unsigned)time(NULL) );
+
+    QString Qn = ui->Option3ChoseNumber->currentText();
+    int n = Qn.toInt();
+
+    for (int i = 0; i < 14/3 * n; i++) {
+        out += genEngWord() + " ";
+        ui->Option3OUT->setText(QString::fromStdString(out));
+    }
+    startTimer();
+    points = 0;
+};
+
 string eraseFirstLeter(string text) {
     string result = "";
     for (int i = 1; i < text.size(); i++) {
@@ -414,6 +443,30 @@ void app::keyPressEvent(QKeyEvent *event) {
             }
         }
     }
+    if (ui->stackedWidget->currentIndex() == 5) {
+        QString Qtext = ui->Option3OUT->text();
+        std::string text = Qtext.toUtf8().constData();
+
+        QString Qn = ui->Option3ChoseNumber->currentText();
+        int n = Qn.toInt();
+
+        if (count >= n){
+            stopTimer();
+
+            double result = (double)(points/timeCount) * 60;
+            writeResultDatabase(result);
+
+            ui->Option3OUT->setText(QString::fromStdString(""));
+        }
+
+        if (event->text() == text[0]) {
+            points++;
+            ui->Option3Points->setText(QString::number(points));
+
+            string finText = eraseFirstLeter(text);
+            ui->Option3OUT->setText(QString::fromStdString(finText));
+        }
+    }
 }
 
 void app::updateLabel() {
@@ -423,5 +476,8 @@ void app::updateLabel() {
     }
     if (ui->stackedWidget->currentIndex() == 4) {
         ui->Option2TIME->setText(QString::number(count));
+    }
+    if (ui->stackedWidget->currentIndex() == 5) {
+        ui->Option3TIME->setText(QString::number(count));
     }
 }

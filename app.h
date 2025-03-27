@@ -27,19 +27,26 @@ class app : public QMainWindow
 private slots :
     void exitFun();
     void mainMenu();
+
     void transferAuth();
     void authorizationFun();
     void createAccountFun();
+
     void option1Transfer();
     void option2Transfer();
     void option3Transfer();
     void option4Transfer();
+
     void leaderBoardTransfer();
     void leaderBoardUpdate();
+
     void option1TextFill();
     void option2TextFill();
+    void option3TextFill();
+
     void startTimer();
     void stopTimer();
+
     void updateLabel();
     void exitMainMenu();
     void writeResultDatabase(double result);

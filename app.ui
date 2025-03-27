@@ -332,7 +332,7 @@ font-size:20px;
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>290</x>
         <y>30</y>
         <width>231</width>
         <height>81</height>
@@ -350,7 +350,7 @@ font-size:45px;
      <widget class="QPushButton" name="ButtonOption1">
       <property name="geometry">
        <rect>
-        <x>130</x>
+        <x>90</x>
         <y>260</y>
         <width>161</width>
         <height>51</height>
@@ -363,8 +363,8 @@ font-size:45px;
      <widget class="QPushButton" name="ButtonExitMain">
       <property name="geometry">
        <rect>
-        <x>460</x>
-        <y>410</y>
+        <x>450</x>
+        <y>390</y>
         <width>161</width>
         <height>51</height>
        </rect>
@@ -376,8 +376,8 @@ font-size:45px;
      <widget class="QPushButton" name="ButtonLeaderBoard">
       <property name="geometry">
        <rect>
-        <x>130</x>
-        <y>410</y>
+        <x>190</x>
+        <y>390</y>
         <width>161</width>
         <height>51</height>
        </rect>
@@ -389,7 +389,7 @@ font-size:45px;
      <widget class="QPushButton" name="ButtonOption2">
       <property name="geometry">
        <rect>
-        <x>460</x>
+        <x>320</x>
         <y>260</y>
         <width>161</width>
         <height>51</height>
@@ -402,8 +402,8 @@ font-size:45px;
      <widget class="QPushButton" name="ButtonOption3">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>330</y>
+        <x>550</x>
+        <y>260</y>
         <width>161</width>
         <height>51</height>
        </rect>
