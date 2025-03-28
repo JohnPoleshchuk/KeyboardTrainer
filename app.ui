@@ -511,8 +511,8 @@ font-size:45px;
      <widget class="QPushButton" name="ButtonMainMenuOP1">
       <property name="geometry">
        <rect>
-        <x>630</x>
-        <y>390</y>
+        <x>640</x>
+        <y>370</y>
         <width>91</width>
         <height>61</height>
        </rect>
@@ -524,8 +524,8 @@ font-size:45px;
      <widget class="QLabel" name="Option1OUT">
       <property name="geometry">
        <rect>
-        <x>100</x>
-        <y>270</y>
+        <x>50</x>
+        <y>250</y>
         <width>591</width>
         <height>81</height>
        </rect>
@@ -542,8 +542,8 @@ font-size:30px;
      <widget class="QPushButton" name="Option1ButtonStart">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>390</y>
+        <x>430</x>
+        <y>370</y>
         <width>111</width>
         <height>61</height>
        </rect>
@@ -556,7 +556,7 @@ font-size:30px;
       <property name="geometry">
        <rect>
         <x>130</x>
-        <y>130</y>
+        <y>80</y>
         <width>571</width>
         <height>81</height>
        </rect>
@@ -574,7 +574,7 @@ font-size:30px;
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>130</y>
+        <y>80</y>
         <width>71</width>
         <height>81</height>
        </rect>
@@ -592,7 +592,7 @@ font-size:30px;
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>40</y>
+        <y>10</y>
         <width>91</width>
         <height>81</height>
        </rect>
@@ -610,7 +610,7 @@ font-size:30px;
       <property name="geometry">
        <rect>
         <x>130</x>
-        <y>40</y>
+        <y>20</y>
         <width>571</width>
         <height>81</height>
        </rect>
@@ -627,8 +627,8 @@ font-size:30px;
      <widget class="QComboBox" name="Option1ChoseNumber">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>390</y>
+        <x>340</x>
+        <y>370</y>
         <width>79</width>
         <height>26</height>
        </rect>
@@ -659,7 +659,7 @@ font-size:30px;
      <widget class="QPushButton" name="ButtonMainMenuOP2">
       <property name="geometry">
        <rect>
-        <x>630</x>
+        <x>640</x>
         <y>370</y>
         <width>91</width>
         <height>61</height>
@@ -820,7 +820,7 @@ font-size:30px;
      <widget class="QPushButton" name="Option3ButtonStart">
       <property name="geometry">
        <rect>
-        <x>400</x>
+        <x>430</x>
         <y>370</y>
         <width>111</width>
         <height>61</height>
@@ -833,8 +833,8 @@ font-size:30px;
      <widget class="QComboBox" name="Option3ChoseNumber">
       <property name="geometry">
        <rect>
-        <x>300</x>
-        <y>380</y>
+        <x>340</x>
+        <y>370</y>
         <width>79</width>
         <height>26</height>
        </rect>
@@ -859,7 +859,7 @@ font-size:30px;
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>100</y>
+        <y>80</y>
         <width>71</width>
         <height>81</height>
        </rect>
@@ -894,8 +894,8 @@ font-size:30px;
      <widget class="QLabel" name="Option3Points">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>20</y>
+        <x>130</x>
+        <y>10</y>
         <width>571</width>
         <height>81</height>
        </rect>
@@ -913,7 +913,7 @@ font-size:30px;
       <property name="geometry">
        <rect>
         <x>110</x>
-        <y>100</y>
+        <y>80</y>
         <width>571</width>
         <height>81</height>
        </rect>
@@ -931,7 +931,7 @@ font-size:30px;
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>20</y>
+        <y>10</y>
         <width>91</width>
         <height>81</height>
        </rect>
@@ -948,8 +948,8 @@ font-size:30px;
      <widget class="QComboBox" name="Option3ChoseType">
       <property name="geometry">
        <rect>
-        <x>200</x>
-        <y>380</y>
+        <x>250</x>
+        <y>370</y>
         <width>79</width>
         <height>26</height>
        </rect>
@@ -966,21 +966,7 @@ font-size:30px;
       </item>
      </widget>
     </widget>
-    <widget class="QWidget" name="Option4">
-     <widget class="QPushButton" name="ButtonMainMenuOP4">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>200</y>
-        <width>91</width>
-        <height>61</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Main Menu</string>
-      </property>
-     </widget>
-    </widget>
+    <widget class="QWidget" name="Option4"/>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

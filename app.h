@@ -35,7 +35,6 @@ private slots :
     void option1Transfer();
     void option2Transfer();
     void option3Transfer();
-    void option4Transfer();
 
     void leaderBoardTransfer();
     void leaderBoardUpdate();

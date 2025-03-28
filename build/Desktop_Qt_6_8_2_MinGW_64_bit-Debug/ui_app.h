@@ -96,7 +96,6 @@ public:
     QLabel *Option3LabelPoints;
     QComboBox *Option3ChoseType;
     QWidget *Option4;
-    QPushButton *ButtonMainMenuOP4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -277,16 +276,16 @@ public:
         Option1->setObjectName("Option1");
         ButtonMainMenuOP1 = new QPushButton(Option1);
         ButtonMainMenuOP1->setObjectName("ButtonMainMenuOP1");
-        ButtonMainMenuOP1->setGeometry(QRect(630, 390, 91, 61));
+        ButtonMainMenuOP1->setGeometry(QRect(640, 370, 91, 61));
         Option1OUT = new QLabel(Option1);
         Option1OUT->setObjectName("Option1OUT");
-        Option1OUT->setGeometry(QRect(100, 270, 591, 81));
+        Option1OUT->setGeometry(QRect(50, 250, 591, 81));
         Option1OUT->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:30px;\n"
 "}"));
         Option1ButtonStart = new QPushButton(Option1);
         Option1ButtonStart->setObjectName("Option1ButtonStart");
-        Option1ButtonStart->setGeometry(QRect(330, 390, 111, 61));
+        Option1ButtonStart->setGeometry(QRect(430, 370, 111, 61));
         Option1TIME = new QLabel(Option1);
         Option1TIME->setObjectName("Option1TIME");
         Option1TIME->setGeometry(QRect(130, 130, 571, 81));
@@ -295,13 +294,13 @@ public:
 "}"));
         Option1LabelTime = new QLabel(Option1);
         Option1LabelTime->setObjectName("Option1LabelTime");
-        Option1LabelTime->setGeometry(QRect(30, 130, 71, 81));
+        Option1LabelTime->setGeometry(QRect(30, 80, 71, 81));
         Option1LabelTime->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:30px;\n"
 "}"));
         Option1LabelPoints = new QLabel(Option1);
         Option1LabelPoints->setObjectName("Option1LabelPoints");
-        Option1LabelPoints->setGeometry(QRect(30, 40, 91, 81));
+        Option1LabelPoints->setGeometry(QRect(30, 10, 91, 81));
         Option1LabelPoints->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:30px;\n"
 "}"));
@@ -317,13 +316,13 @@ public:
         Option1ChoseNumber->addItem(QString());
         Option1ChoseNumber->addItem(QString());
         Option1ChoseNumber->setObjectName("Option1ChoseNumber");
-        Option1ChoseNumber->setGeometry(QRect(240, 390, 79, 26));
+        Option1ChoseNumber->setGeometry(QRect(340, 370, 79, 26));
         stackedWidget->addWidget(Option1);
         Option2 = new QWidget();
         Option2->setObjectName("Option2");
         ButtonMainMenuOP2 = new QPushButton(Option2);
         ButtonMainMenuOP2->setObjectName("ButtonMainMenuOP2");
-        ButtonMainMenuOP2->setGeometry(QRect(630, 370, 91, 61));
+        ButtonMainMenuOP2->setGeometry(QRect(640, 370, 91, 61));
         Option2ButtonStart = new QPushButton(Option2);
         Option2ButtonStart->setObjectName("Option2ButtonStart");
         Option2ButtonStart->setGeometry(QRect(430, 370, 111, 61));
@@ -372,16 +371,16 @@ public:
         ButtonMainMenuOP3->setGeometry(QRect(640, 370, 91, 61));
         Option3ButtonStart = new QPushButton(Option3);
         Option3ButtonStart->setObjectName("Option3ButtonStart");
-        Option3ButtonStart->setGeometry(QRect(400, 370, 111, 61));
+        Option3ButtonStart->setGeometry(QRect(430, 370, 111, 61));
         Option3ChoseNumber = new QComboBox(Option3);
         Option3ChoseNumber->addItem(QString());
         Option3ChoseNumber->addItem(QString());
         Option3ChoseNumber->addItem(QString());
         Option3ChoseNumber->setObjectName("Option3ChoseNumber");
-        Option3ChoseNumber->setGeometry(QRect(300, 380, 79, 26));
+        Option3ChoseNumber->setGeometry(QRect(340, 370, 79, 26));
         Option3LabelTime = new QLabel(Option3);
         Option3LabelTime->setObjectName("Option3LabelTime");
-        Option3LabelTime->setGeometry(QRect(30, 100, 71, 81));
+        Option3LabelTime->setGeometry(QRect(30, 80, 71, 81));
         Option3LabelTime->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:30px;\n"
 "}"));
@@ -405,7 +404,7 @@ public:
 "}"));
         Option3LabelPoints = new QLabel(Option3);
         Option3LabelPoints->setObjectName("Option3LabelPoints");
-        Option3LabelPoints->setGeometry(QRect(30, 20, 91, 81));
+        Option3LabelPoints->setGeometry(QRect(30, 10, 91, 81));
         Option3LabelPoints->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:30px;\n"
 "}"));
@@ -413,13 +412,10 @@ public:
         Option3ChoseType->addItem(QString());
         Option3ChoseType->addItem(QString());
         Option3ChoseType->setObjectName("Option3ChoseType");
-        Option3ChoseType->setGeometry(QRect(200, 380, 79, 26));
+        Option3ChoseType->setGeometry(QRect(250, 370, 79, 26));
         stackedWidget->addWidget(Option3);
         Option4 = new QWidget();
         Option4->setObjectName("Option4");
-        ButtonMainMenuOP4 = new QPushButton(Option4);
-        ButtonMainMenuOP4->setObjectName("ButtonMainMenuOP4");
-        ButtonMainMenuOP4->setGeometry(QRect(420, 200, 91, 61));
         stackedWidget->addWidget(Option4);
         app->setCentralWidget(centralwidget);
         menubar = new QMenuBar(app);
@@ -501,7 +497,6 @@ public:
         Option3ChoseType->setItemText(0, QCoreApplication::translate("app", "Symbols", nullptr));
         Option3ChoseType->setItemText(1, QCoreApplication::translate("app", "Words", nullptr));
 
-        ButtonMainMenuOP4->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
     } // retranslateUi
 
 };

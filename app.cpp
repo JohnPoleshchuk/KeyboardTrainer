@@ -49,8 +49,6 @@ app::app(QWidget *parent)
             this, SLOT(mainMenu()));
     connect(ui->ButtonMainMenuOP3, SIGNAL(clicked()),
             this, SLOT(mainMenu()));
-    connect(ui->ButtonMainMenuOP4, SIGNAL(clicked()),
-            this, SLOT(mainMenu()));
 
     //Log in <-> Sign Up
     connect(ui->ButtonTransferLog, SIGNAL(clicked()),
@@ -221,9 +219,6 @@ void app::option2Transfer() {
 }
 void app::option3Transfer() {
     ui->stackedWidget->setCurrentIndex(5);
-}
-void app::option4Transfer() {
-    ui->stackedWidget->setCurrentIndex(6);
 }
 
 void app::leaderBoardTransfer() {

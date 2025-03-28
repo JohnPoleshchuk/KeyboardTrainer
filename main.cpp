@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     app w;
 
     w.setWindowTitle("Keyboard Trainer");
-    w.setWindowIcon(QIcon("C:/SoftwareEngineering/Project/KeyboardTrainer/images/icon/keyboard-100.png"));
+    w.setWindowIcon(QIcon("C:/SoftwareEngineering/Project/KeyboardTrainer/images/icon/keyboard.png"));
 
     w.show();
     return a.exec();
