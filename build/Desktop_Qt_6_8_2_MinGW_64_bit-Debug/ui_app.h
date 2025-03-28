@@ -51,7 +51,6 @@ public:
     QPushButton *ButtonExitSign;
     QPushButton *ButtonConSign;
     QPushButton *ButtonTransferSign;
-    QPushButton *ButtonForgetPassword_2;
     QWidget *MainMenu;
     QLabel *label;
     QPushButton *ButtonOption1;
@@ -59,6 +58,7 @@ public:
     QPushButton *ButtonLeaderBoard;
     QPushButton *ButtonOption2;
     QPushButton *ButtonOption3;
+    QLabel *UsernameMainMenu;
     QWidget *LeadersBoard;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
@@ -94,6 +94,7 @@ public:
     QLabel *Option3Points;
     QLabel *Option3TIME;
     QLabel *Option3LabelPoints;
+    QComboBox *Option3ChoseType;
     QWidget *Option4;
     QPushButton *ButtonMainMenuOP4;
     QMenuBar *menubar;
@@ -103,7 +104,7 @@ public:
     {
         if (app->objectName().isEmpty())
             app->setObjectName("app");
-        app->resize(770, 555);
+        app->resize(757, 525);
         centralwidget = new QWidget(app);
         centralwidget->setObjectName("centralwidget");
         stackedWidget = new QStackedWidget(centralwidget);
@@ -169,25 +170,25 @@ public:
         SignUp->setObjectName("SignUp");
         label_3 = new QLabel(SignUp);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(260, 40, 281, 101));
+        label_3->setGeometry(QRect(260, 50, 281, 101));
         label_3->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:35px;\n"
 "}"));
         label_6 = new QLabel(SignUp);
         label_6->setObjectName("label_6");
-        label_6->setGeometry(QRect(80, 210, 141, 81));
+        label_6->setGeometry(QRect(90, 200, 141, 81));
         label_6->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:20px;\n"
 "}"));
         label_7 = new QLabel(SignUp);
         label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(80, 280, 141, 81));
+        label_7->setGeometry(QRect(90, 280, 141, 81));
         label_7->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:20px;\n"
 "}"));
         lineEditUsernameSign = new QLineEdit(SignUp);
         lineEditUsernameSign->setObjectName("lineEditUsernameSign");
-        lineEditUsernameSign->setGeometry(QRect(230, 230, 471, 41));
+        lineEditUsernameSign->setGeometry(QRect(230, 220, 471, 41));
         lineEditUsernameSign->setStyleSheet(QString::fromUtf8("QLineEdit {\n"
 "font-size:20px;\n"
 "}"));
@@ -199,25 +200,22 @@ public:
 "}"));
         ButtonExitSign = new QPushButton(SignUp);
         ButtonExitSign->setObjectName("ButtonExitSign");
-        ButtonExitSign->setGeometry(QRect(560, 400, 131, 61));
+        ButtonExitSign->setGeometry(QRect(560, 390, 131, 61));
         ButtonExitSign->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font-size:20px;\n"
 "}"));
         ButtonConSign = new QPushButton(SignUp);
         ButtonConSign->setObjectName("ButtonConSign");
-        ButtonConSign->setGeometry(QRect(240, 400, 131, 61));
+        ButtonConSign->setGeometry(QRect(230, 390, 131, 61));
         ButtonConSign->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font-size:20px;\n"
 "}"));
         ButtonTransferSign = new QPushButton(SignUp);
         ButtonTransferSign->setObjectName("ButtonTransferSign");
-        ButtonTransferSign->setGeometry(QRect(630, 40, 101, 41));
+        ButtonTransferSign->setGeometry(QRect(620, 30, 101, 41));
         ButtonTransferSign->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "font-size:20px;\n"
 "}"));
-        ButtonForgetPassword_2 = new QPushButton(SignUp);
-        ButtonForgetPassword_2->setObjectName("ButtonForgetPassword_2");
-        ButtonForgetPassword_2->setGeometry(QRect(710, 300, 31, 41));
         stackedWidgetAuth->addWidget(SignUp);
         stackedWidget->addWidget(Authenticaiton);
         MainMenu = new QWidget();
@@ -243,6 +241,9 @@ public:
         ButtonOption3 = new QPushButton(MainMenu);
         ButtonOption3->setObjectName("ButtonOption3");
         ButtonOption3->setGeometry(QRect(550, 260, 161, 51));
+        UsernameMainMenu = new QLabel(MainMenu);
+        UsernameMainMenu->setObjectName("UsernameMainMenu");
+        UsernameMainMenu->setGeometry(QRect(20, 10, 321, 51));
         stackedWidget->addWidget(MainMenu);
         LeadersBoard = new QWidget();
         LeadersBoard->setObjectName("LeadersBoard");
@@ -408,6 +409,11 @@ public:
         Option3LabelPoints->setStyleSheet(QString::fromUtf8("QLabel {\n"
 "font-size:30px;\n"
 "}"));
+        Option3ChoseType = new QComboBox(Option3);
+        Option3ChoseType->addItem(QString());
+        Option3ChoseType->addItem(QString());
+        Option3ChoseType->setObjectName("Option3ChoseType");
+        Option3ChoseType->setGeometry(QRect(200, 380, 79, 26));
         stackedWidget->addWidget(Option3);
         Option4 = new QWidget();
         Option4->setObjectName("Option4");
@@ -418,7 +424,7 @@ public:
         app->setCentralWidget(centralwidget);
         menubar = new QMenuBar(app);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 770, 26));
+        menubar->setGeometry(QRect(0, 0, 757, 26));
         app->setMenuBar(menubar);
         statusbar = new QStatusBar(app);
         statusbar->setObjectName("statusbar");
@@ -444,13 +450,13 @@ public:
         ButtonExitSign->setText(QCoreApplication::translate("app", "EXIT", nullptr));
         ButtonConSign->setText(QCoreApplication::translate("app", "CONFIRM", nullptr));
         ButtonTransferSign->setText(QCoreApplication::translate("app", "LOG IN", nullptr));
-        ButtonForgetPassword_2->setText(QString());
         label->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
         ButtonOption1->setText(QCoreApplication::translate("app", "Option1", nullptr));
         ButtonExitMain->setText(QCoreApplication::translate("app", "Exit", nullptr));
         ButtonLeaderBoard->setText(QCoreApplication::translate("app", "LeaderBoard", nullptr));
         ButtonOption2->setText(QCoreApplication::translate("app", "Option2", nullptr));
         ButtonOption3->setText(QCoreApplication::translate("app", "Option3", nullptr));
+        UsernameMainMenu->setText(QString());
         Username->setText(QString());
         ButtonMainMenuLB->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
         LeadersBoardChoseTable->setItemText(0, QCoreApplication::translate("app", "Symbols", nullptr));
@@ -492,6 +498,9 @@ public:
         Option3Points->setText(QString());
         Option3TIME->setText(QString());
         Option3LabelPoints->setText(QCoreApplication::translate("app", "Points", nullptr));
+        Option3ChoseType->setItemText(0, QCoreApplication::translate("app", "Symbols", nullptr));
+        Option3ChoseType->setItemText(1, QCoreApplication::translate("app", "Words", nullptr));
+
         ButtonMainMenuOP4->setText(QCoreApplication::translate("app", "Main Menu", nullptr));
     } // retranslateUi
 

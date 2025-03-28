@@ -44,6 +44,8 @@ private slots :
     void option2TextFill();
     void option3TextFill();
 
+    void option3End();
+
     void startTimer();
     void stopTimer();
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>770</width>
-    <height>555</height>
+    <width>757</width>
+    <height>525</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -178,7 +178,7 @@ font-size:20px;
         <property name="geometry">
          <rect>
           <x>260</x>
-          <y>40</y>
+          <y>50</y>
           <width>281</width>
           <height>101</height>
          </rect>
@@ -195,8 +195,8 @@ font-size:35px;
        <widget class="QLabel" name="label_6">
         <property name="geometry">
          <rect>
-          <x>80</x>
-          <y>210</y>
+          <x>90</x>
+          <y>200</y>
           <width>141</width>
           <height>81</height>
          </rect>
@@ -213,7 +213,7 @@ font-size:20px;
        <widget class="QLabel" name="label_7">
         <property name="geometry">
          <rect>
-          <x>80</x>
+          <x>90</x>
           <y>280</y>
           <width>141</width>
           <height>81</height>
@@ -232,7 +232,7 @@ font-size:20px;
         <property name="geometry">
          <rect>
           <x>230</x>
-          <y>230</y>
+          <y>220</y>
           <width>471</width>
           <height>41</height>
          </rect>
@@ -262,7 +262,7 @@ font-size:20px;
         <property name="geometry">
          <rect>
           <x>560</x>
-          <y>400</y>
+          <y>390</y>
           <width>131</width>
           <height>61</height>
          </rect>
@@ -279,8 +279,8 @@ font-size:20px;
        <widget class="QPushButton" name="ButtonConSign">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>400</y>
+          <x>230</x>
+          <y>390</y>
           <width>131</width>
           <height>61</height>
          </rect>
@@ -297,8 +297,8 @@ font-size:20px;
        <widget class="QPushButton" name="ButtonTransferSign">
         <property name="geometry">
          <rect>
-          <x>630</x>
-          <y>40</y>
+          <x>620</x>
+          <y>30</y>
           <width>101</width>
           <height>41</height>
          </rect>
@@ -397,6 +397,19 @@ font-size:45px;
       </property>
       <property name="text">
        <string>Option3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="UsernameMainMenu">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>321</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
       </property>
      </widget>
     </widget>
@@ -932,6 +945,26 @@ font-size:30px;
        <string>Points</string>
       </property>
      </widget>
+     <widget class="QComboBox" name="Option3ChoseType">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>380</y>
+        <width>79</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Symbols</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Words</string>
+       </property>
+      </item>
+     </widget>
     </widget>
     <widget class="QWidget" name="Option4">
      <widget class="QPushButton" name="ButtonMainMenuOP4">
@@ -955,7 +988,7 @@ font-size:30px;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>770</width>
+     <width>757</width>
      <height>26</height>
     </rect>
    </property>

@@ -109,6 +109,7 @@ app::app(QWidget *parent)
     ui->Option3ButtonStart->setFocusPolicy(Qt::NoFocus);
     ui->Option3ChoseNumber->setFocusPolicy(Qt::NoFocus);
     ui->ButtonMainMenuOP3->setFocusPolicy(Qt::NoFocus);
+    ui->Option3ChoseType->setFocusPolicy(Qt::NoFocus);
 
     //background music
     audioOutput = new QAudioOutput(this);
@@ -149,7 +150,7 @@ void app::setVolume(int volume) {
 void app::writeResultDatabase(double result) {
     if (sqlitedb.open()) {
         QSqlQuery query(sqlitedb);
-        if (ui->stackedWidget->currentIndex() == 3) {
+        if (ui->stackedWidget->currentIndex() == 3 || ((ui->stackedWidget->currentIndex() == 5) && (ui->Option3ChoseType->currentText() == "Symbols"))) {
             query.prepare("SELECT SYMBOLS_RESULT FROM AuthData WHERE LOGIN = :username");
         } else {
             query.prepare("SELECT WORDS_RESULT FROM AuthData WHERE LOGIN = :username");
@@ -163,7 +164,7 @@ void app::writeResultDatabase(double result) {
 
                 if (n < result) {
                     QSqlQuery query(sqlitedb);
-                    if (ui->stackedWidget->currentIndex() == 3) {
+                    if (ui->stackedWidget->currentIndex() == 3 || ((ui->stackedWidget->currentIndex() == 5) && (ui->Option3ChoseType->currentText() == "Symbols"))) {
                         query.prepare("UPDATE AuthData SET SYMBOLS_RESULT = :result WHERE LOGIN = :username;");
                     } else {
                         query.prepare("UPDATE AuthData SET WORDS_RESULT = :result WHERE LOGIN = :username;");
@@ -182,9 +183,19 @@ void app::writeResultDatabase(double result) {
 
 void app::exitMainMenu() {
     stopTimer();
+
     ui->Option1OUT->setText(NULL);
     ui->Option1TIME->setText(NULL);
     ui->Option1Points->setText(NULL);
+
+    ui->Option2OUT->setText(NULL);
+    ui->Option2TIME->setText(NULL);
+    ui->Option2Points->setText(NULL);
+
+    ui->Option3OUT->setText(NULL);
+    ui->Option3TIME->setText(NULL);
+    ui->Option3Points->setText(NULL);
+
     points = 0;
 }
 
@@ -226,7 +237,7 @@ void app::leaderBoardTransfer() {
 
     QSqlTableModel* modal = new QSqlTableModel();
     if (sqlitedb.open()) {
-        QSqlQuery query(sqlitedb); 
+        QSqlQuery query(sqlitedb);
 
         modal->setTable("AuthData");
         if (ui->LeadersBoardChoseTable->currentText() == QString::fromStdString("Symbols")) {
@@ -234,7 +245,6 @@ void app::leaderBoardTransfer() {
         } else {
             modal->sort(3, Qt::DescendingOrder);
         }
-        modal->sort(2, Qt::DescendingOrder);
         modal->select();
         ui->tableView->setModel(modal);
         ui->tableView->setColumnHidden(1,true);
@@ -289,6 +299,7 @@ void app::authorizationFun() {
         if (query.exec()) {
             if (query.next()) {
                 login = username;
+                ui->UsernameMainMenu->setText(login);
                 ui->stackedWidget->setCurrentIndex(1);
             } else {
                 QMessageBox::information(this, "Incorect Login or Password",
@@ -326,8 +337,6 @@ void app::createAccountFun() {
                 query.bindValue(":username", username);
                 query.bindValue(":password", password);
                 query.exec();
-                QMessageBox::information(this, "Input error",
-                                         "Input");
             }
         } else {
             QMessageBox::information(this, "Database Error",
@@ -375,8 +384,8 @@ void app::option2TextFill() {
 
     for (int i = 0; i < n; i++) {
         out += genEngWord() + " ";
-        ui->Option2OUT->setText(QString::fromStdString(out));
     }
+    ui->Option2OUT->setText(QString::fromStdString(out));
     startTimer();
     points = 0;
 };
@@ -385,16 +394,34 @@ void app::option3TextFill() {
     string out = "";
     srand( (unsigned)time(NULL) );
 
-    QString Qn = ui->Option3ChoseNumber->currentText();
-    int n = Qn.toInt();
-
-    for (int i = 0; i < 14/3 * n; i++) {
-        out += genEngWord() + " ";
-        ui->Option3OUT->setText(QString::fromStdString(out));
+    if (ui->Option3ChoseType->currentText() == (QString::fromStdString("Symbols"))) {
+        for (int i = 0; i < 60; i++) {
+            out += genRandom();
+        }
+    } else {
+        for (int i = 0; i < 9; i++) {
+            out += genEngWord() + " ";
+        }
     }
+
+    ui->Option3OUT->setText(QString::fromStdString(out));
     startTimer();
     points = 0;
 };
+
+void app::option3End() {
+    QString Qn = ui->Option3ChoseNumber->currentText();
+    int n = Qn.toInt();
+
+    if (count >= n){
+        stopTimer();
+
+        double result = (double)(points/timeCount) * 60;
+        writeResultDatabase(result);
+
+        ui->Option3OUT->setText(NULL);
+    }
+}
 
 string eraseFirstLeter(string text) {
     string result = "";
@@ -447,23 +474,20 @@ void app::keyPressEvent(QKeyEvent *event) {
         QString Qtext = ui->Option3OUT->text();
         std::string text = Qtext.toUtf8().constData();
 
-        QString Qn = ui->Option3ChoseNumber->currentText();
-        int n = Qn.toInt();
-
-        if (count >= n){
-            stopTimer();
-
-            double result = (double)(points/timeCount) * 60;
-            writeResultDatabase(result);
-
-            ui->Option3OUT->setText(QString::fromStdString(""));
-        }
-
         if (event->text() == text[0]) {
             points++;
             ui->Option3Points->setText(QString::number(points));
 
             string finText = eraseFirstLeter(text);
+
+            if (ui->Option3ChoseType->currentText() == "Symbols") {
+                finText += genRandom();
+            } else {
+                if (text[0] == ' ') {
+                    finText += genEngWord() + " ";
+                }
+            }
+
             ui->Option3OUT->setText(QString::fromStdString(finText));
         }
     }
@@ -479,5 +503,7 @@ void app::updateLabel() {
     }
     if (ui->stackedWidget->currentIndex() == 5) {
         ui->Option3TIME->setText(QString::number(count));
+
+        option3End();
     }
 }
